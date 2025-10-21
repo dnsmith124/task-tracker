@@ -1,0 +1,287 @@
+@use '@/assets/styles/variables' as *;
+@use '@/assets/styles/mixins' as *;
+
+.characterPanel {
+  @include card;
+  margin-bottom: $spacing-lg;
+
+  @include md {
+    margin-bottom: 0;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-lg;
+  padding-bottom: $spacing-md;
+  border-bottom: 2px solid $border-color;
+}
+
+.title {
+  font-size: $font-size-xl;
+  color: $accent-gold;
+  margin: 0;
+}
+
+.nameSection {
+  margin-bottom: $spacing-lg;
+}
+
+.nameDisplay {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.nameInput {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  padding: $spacing-xs $spacing-sm;
+  flex: 1;
+  min-width: 0;
+}
+
+.editButton {
+  @include button-base;
+  background: transparent;
+  color: $accent-gold;
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-sm;
+  border: 1px solid $accent-gold;
+
+  &:hover:not(:disabled) {
+    background: rgba($accent-gold, 0.1);
+  }
+}
+
+.levelSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.level {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $accent-gold-light;
+  
+  span {
+    font-size: $font-size-xxl;
+  }
+}
+
+.xpBar {
+  flex: 1;
+  margin-left: $spacing-lg;
+}
+
+.xpLabel {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  margin-bottom: $spacing-xs;
+  display: flex;
+  justify-content: space-between;
+}
+
+.xpProgress {
+  height: 20px;
+  background: $background-medium;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  position: relative;
+}
+
+.xpFill {
+  height: 100%;
+  background: linear-gradient(90deg, $accent-gold, $accent-gold-light);
+  transition: width $transition-slow;
+  box-shadow: 0 0 10px rgba($accent-gold, 0.5);
+}
+
+.resourcesSection {
+  margin-top: $spacing-lg;
+  padding-top: $spacing-lg;
+  border-top: 2px solid $border-color;
+}
+
+.resourcesTitle {
+  font-size: $font-size-lg;
+  color: $accent-gold;
+  margin: 0 0 $spacing-md 0;
+}
+
+.resourcesList {
+  display: grid;
+  gap: $spacing-sm;
+}
+
+.resourceItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: rgba($primary-purple, 0.3);
+  border-radius: $border-radius-sm;
+  border: 1px solid rgba($border-color, 0.5);
+}
+
+.resourceIcon {
+  font-size: $font-size-xl;
+}
+
+.resourceLabel {
+  flex: 1;
+  font-weight: $font-weight-medium;
+  color: $text-secondary;
+}
+
+.resourceValue {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $accent-gold-light;
+  min-width: 60px;
+  text-align: right;
+}
+
+.pendingBonusesSection {
+  margin-top: $spacing-lg;
+  padding: $spacing-md;
+  background: rgba($warning-orange, 0.1);
+  border: 2px solid rgba($warning-orange, 0.5);
+  border-radius: $border-radius-md;
+}
+
+.pendingBonusesTitle {
+  font-size: $font-size-base;
+  color: $warning-orange;
+  margin: 0 0 $spacing-xs 0;
+  font-weight: $font-weight-bold;
+}
+
+.pendingBonusesDescription {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  margin: 0 0 $spacing-sm 0;
+  font-style: italic;
+}
+
+.pendingBonusesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.pendingBonusItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-sm;
+  background: rgba($primary-purple, 0.5);
+  border: 1px solid $warning-orange;
+  border-radius: $border-radius-sm;
+}
+
+.pendingBonusAttr {
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+}
+
+.pendingBonusValue {
+  font-weight: $font-weight-bold;
+  color: $warning-orange;
+}
+
+.attributesSection {
+  margin-top: $spacing-lg;
+  padding-top: $spacing-lg;
+  border-top: 2px solid $border-color;
+}
+
+.attributesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.attributesTitle {
+  font-size: $font-size-lg;
+  color: $accent-gold;
+  margin: 0;
+}
+
+.unassignedPoints {
+  font-size: $font-size-base;
+  color: $accent-gold-light;
+  font-weight: $font-weight-bold;
+  padding: $spacing-xs $spacing-sm;
+  background: rgba($accent-gold, 0.2);
+  border-radius: $border-radius-sm;
+  border: 1px solid $accent-gold;
+}
+
+.attributesList {
+  display: grid;
+  gap: $spacing-md;
+}
+
+.attributeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-sm;
+  background: rgba($primary-purple, 0.3);
+  border-radius: $border-radius-sm;
+  border: 1px solid rgba($border-color, 0.5);
+}
+
+.attributeName {
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  font-size: $font-size-base;
+  min-width: 50px;
+}
+
+.attributeValue {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $accent-gold-light;
+  min-width: 40px;
+  text-align: center;
+}
+
+.attributeControls {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.attributeButton {
+  @include button-base;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  background: $primary-purple;
+  color: $accent-gold;
+  border: 1px solid $accent-gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover:not(:disabled) {
+    background: $primary-light;
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    border-color: $text-muted;
+    color: $text-muted;
+  }
+}
+

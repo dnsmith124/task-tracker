@@ -1,0 +1,108 @@
+@use '@/assets/styles/variables' as *;
+@use '@/assets/styles/mixins' as *;
+
+.campaignCard {
+  @include card;
+  margin-bottom: $spacing-md;
+}
+
+.campaignHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: $success-green;
+}
+
+.campaignInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.campaignName {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $accent-gold-light;
+  margin: 0;
+  
+  &.completed {
+    @include completed-item;
+  }
+}
+
+.questCount {
+  font-size: $font-size-sm;
+  color: $text-muted;
+  margin-top: $spacing-xs;
+}
+
+.actions {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.button {
+  @include button-base;
+  padding: $spacing-xs;
+  font-size: $font-size-lg;
+  line-height: 1;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expandButton {
+  background: transparent;
+  color: $accent-gold;
+  border: 1px solid $accent-gold;
+
+  &:hover:not(:disabled) {
+    background: rgba($accent-gold, 0.1);
+    transform: scale(1.1);
+  }
+}
+
+.deleteButton {
+  background: transparent;
+  color: $danger-red;
+  border: 1px solid $danger-red;
+
+  &:hover:not(:disabled) {
+    background: rgba($danger-red, 0.1);
+    transform: scale(1.1);
+  }
+}
+
+.questsContainer {
+  margin-top: $spacing-md;
+  padding-top: $spacing-md;
+  border-top: 1px solid $border-color;
+}
+
+.emptyQuests {
+  color: $text-muted;
+  font-style: italic;
+  text-align: center;
+  padding: $spacing-md;
+}
+
+.xpBadge {
+  display: inline-block;
+  background: rgba($accent-gold, 0.2);
+  color: $accent-gold-light;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  border: 1px solid $accent-gold;
+  margin-left: $spacing-sm;
+}
+

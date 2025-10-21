@@ -1,0 +1,63 @@
+@use '@/assets/styles/variables' as *;
+@use '@/assets/styles/mixins' as *;
+
+.formContainer {
+  @include card;
+  margin-bottom: $spacing-lg;
+}
+
+.formTitle {
+  margin-bottom: $spacing-md;
+  font-size: $font-size-lg;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 100%;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: $spacing-sm;
+  
+  @include sm {
+    justify-content: flex-start;
+  }
+}
+
+.button {
+  @include button-base;
+  flex: 1;
+  
+  @include sm {
+    flex: 0;
+    min-width: 120px;
+  }
+}
+
+.submitButton {
+  @include button-gold;
+}
+
+.cancelButton {
+  background: transparent;
+  color: $danger-red;
+  border: 1px solid $danger-red;
+  font-size: $font-size-lg;
+
+  &:hover:not(:disabled) {
+    background: rgba($danger-red, 0.1);
+    transform: scale(1.05);
+  }
+}
+

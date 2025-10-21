@@ -1,0 +1,60 @@
+// Fantasy Theme Colors
+$primary-dark: #2d1b4e;
+$primary-purple: #4a2c6d;
+$primary-light: #6b4a9e;
+$accent-gold: #d4af37;
+$accent-gold-light: #f4cf6f;
+
+$background-dark: #1a0f2e;
+$background-medium: #2d1b4e;
+$card-background: #3d2a5f;
+$card-hover: #4d3a6f;
+
+$text-primary: #f5f1e8;
+$text-secondary: #c9bfaa;
+$text-muted: #8e8475;
+
+$success-green: #4caf50;
+$warning-orange: #ff9800;
+$danger-red: #f44336;
+
+$border-color: rgba(212, 175, 55, 0.3);
+$shadow-color: rgba(0, 0, 0, 0.5);
+
+// Typography
+$font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-family-heading: 'Cinzel', serif, $font-family-base;
+
+$font-size-base: 16px;
+$font-size-sm: 14px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+$font-size-xxl: 32px;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-xxl: 3rem;
+
+// Border Radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+// Transitions
+$transition-fast: 0.15s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Z-index
+$z-modal: 1000;
+$z-toast: 2000;
+$z-dropdown: 500;
+

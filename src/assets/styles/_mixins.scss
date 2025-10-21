@@ -1,0 +1,110 @@
+@use '@/assets/styles/variables' as *;
+
+// Breakpoints for responsive design (mobile-first)
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Media query mixins
+@mixin sm {
+  @media (min-width: #{$breakpoint-sm}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$breakpoint-xl}) {
+    @content;
+  }
+}
+
+// Card styling mixin
+@mixin card {
+  background: $card-background;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  box-shadow: 0 4px 6px $shadow-color;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+}
+
+@mixin card-hover {
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px $shadow-color;
+  }
+}
+
+// Button mixin
+@mixin button-base {
+  padding: $spacing-sm $spacing-md;
+  border: none;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: all $transition-normal;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: linear-gradient(135deg, $primary-purple, $primary-light);
+  color: $text-primary;
+  
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, $primary-light, $primary-purple);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px $shadow-color;
+  }
+}
+
+@mixin button-gold {
+  @include button-base;
+  background: linear-gradient(135deg, $accent-gold, $accent-gold-light);
+  color: $primary-dark;
+  
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, $accent-gold-light, $accent-gold);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px $accent-gold;
+  }
+}
+
+// Text truncation
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Flexbox center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Completed item styling
+@mixin completed-item {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+

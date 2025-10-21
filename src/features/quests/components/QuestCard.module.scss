@@ -1,0 +1,114 @@
+@use '@/assets/styles/variables' as *;
+@use '@/assets/styles/mixins' as *;
+
+.questCard {
+  @include card;
+  margin-bottom: $spacing-md;
+  padding: $spacing-md;
+}
+
+.questHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: $spacing-xs;
+  accent-color: $success-green;
+  flex-shrink: 0;
+}
+
+.questContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.questTitleRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-xs;
+  flex-wrap: wrap;
+}
+
+.questTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  margin: 0;
+  
+  &.completed {
+    @include completed-item;
+  }
+}
+
+.questBadge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  flex-shrink: 0;
+
+  &.main {
+    background: rgba($accent-gold, 0.2);
+    color: $accent-gold-light;
+    border: 1px solid $accent-gold;
+  }
+
+  &.side {
+    background: rgba($primary-light, 0.2);
+    color: $text-primary;
+    border: 1px solid $primary-light;
+  }
+}
+
+.xpBadge {
+  display: inline-block;
+  background: rgba($success-green, 0.2);
+  color: $success-green;
+  padding: 2px 8px;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  border: 1px solid $success-green;
+  flex-shrink: 0;
+}
+
+.questDescription {
+  color: $text-secondary;
+  font-size: $font-size-sm;
+  margin: 0;
+  line-height: 1.5;
+  
+  &.completed {
+    @include completed-item;
+  }
+}
+
+.deleteButton {
+  @include button-base;
+  padding: $spacing-xs;
+  font-size: $font-size-lg;
+  line-height: 1;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  color: $danger-red;
+  border: 1px solid $danger-red;
+  flex-shrink: 0;
+  margin-top: $spacing-xs;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover:not(:disabled) {
+    background: rgba($danger-red, 0.1);
+    transform: scale(1.1);
+  }
+}
+

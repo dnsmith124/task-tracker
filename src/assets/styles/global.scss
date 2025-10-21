@@ -1,0 +1,102 @@
+@use '@/assets/styles/variables' as *;
+@use '@/assets/styles/mixins' as *;
+
+// Import Google Fonts for fantasy-style headings
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  color: $text-primary;
+  background: linear-gradient(135deg, $background-dark 0%, $background-medium 100%);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+  color: $accent-gold;
+}
+
+h1 {
+  font-size: $font-size-xxl;
+}
+
+h2 {
+  font-size: $font-size-xl;
+}
+
+h3 {
+  font-size: $font-size-lg;
+}
+
+button {
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: $font-size-base;
+  color: $text-primary;
+  background: $background-medium;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-sm;
+  padding: $spacing-sm $spacing-md;
+  outline: none;
+  transition: border-color $transition-normal;
+  
+  &:focus {
+    border-color: $accent-gold;
+  }
+  
+  &::placeholder {
+    color: $text-muted;
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+label {
+  display: block;
+  margin-bottom: $spacing-xs;
+  color: $text-secondary;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $background-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary-purple;
+  border-radius: $border-radius-sm;
+  
+  &:hover {
+    background: $primary-light;
+  }
+}
+
