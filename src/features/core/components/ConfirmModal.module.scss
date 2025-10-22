@@ -1,0 +1,102 @@
+@use '@/assets/styles/variables' as *;
+@use '@/assets/styles/mixins' as *;
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: $z-modal;
+  padding: $spacing-md;
+}
+
+.modal {
+  @include card;
+  max-width: 500px;
+  width: 100%;
+}
+
+.modalHeader {
+  margin-bottom: $spacing-lg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  h3 {
+    margin: 0;
+    
+    &.warning {
+      color: $warning-orange;
+    }
+    
+    &.danger {
+      color: $danger-red;
+    }
+  }
+}
+
+.closeButton {
+  @include button-base;
+  background: transparent;
+  color: $text-secondary;
+  border: none;
+  padding: $spacing-xs;
+  font-size: $font-size-xl;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover:not(:disabled) {
+    color: $danger-red;
+    background: rgba($danger-red, 0.1);
+    border-radius: $border-radius-sm;
+  }
+}
+
+.modalBody {
+  margin-bottom: $spacing-lg;
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+.modalFooter {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: flex-end;
+}
+
+.button {
+  @include button-base;
+  min-width: 100px;
+}
+
+.cancelButton {
+  background: transparent;
+  color: $text-secondary;
+  border: 1px solid $border-color;
+
+  &:hover:not(:disabled) {
+    background: rgba($border-color, 0.1);
+  }
+}
+
+.confirmButton {
+  @include button-primary;
+  
+  &.danger {
+    background: linear-gradient(135deg, $danger-red, darken($danger-red, 10%));
+    
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, lighten($danger-red, 5%), darken($danger-red, 5%));
+    }
+  }
+}
+
