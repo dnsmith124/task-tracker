@@ -1,0 +1,230 @@
+@use '@/assets/styles/variables' as *;
+
+.adventurerList {
+  background-color: $card-background;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+  border-bottom: 1px solid $border-color;
+  padding-bottom: $spacing-sm;
+}
+
+.title {
+  margin: 0;
+  color: $text-primary;
+  font-family: $font-family-heading;
+  font-size: $font-size-lg;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: $spacing-xs;
+}
+
+.count {
+  color: $text-secondary;
+  font-size: $font-size-sm;
+}
+
+.multiplier {
+  color: $accent-gold;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-sm;
+}
+
+.hireButton {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  margin-bottom: $spacing-md;
+  background: linear-gradient(135deg, $accent-gold, $accent-gold-light);
+  color: $background-dark;
+  border: none;
+  border-radius: $border-radius-sm;
+  font-weight: $font-weight-bold;
+  cursor: pointer;
+  transition: all $transition-fast;
+  font-size: $font-size-md;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba($accent-gold, 0.3);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: linear-gradient(135deg, $text-muted, darken($text-muted, 10%));
+  }
+}
+
+.adventurers {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.adventurer {
+  background-color: $background-medium;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-sm;
+  padding: $spacing-sm;
+  transition: all $transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+
+  &:hover {
+    border-color: $accent-gold;
+    background-color: $card-hover;
+  }
+}
+
+.adventurerInfo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex: 1;
+  min-width: 0; // Allow flex items to shrink
+}
+
+.nameAndXp {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  min-width: 0; // Allow flex items to shrink
+}
+
+.nameSection {
+  min-width: 0; // Allow flex items to shrink
+}
+
+.name {
+  color: $text-primary;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-md;
+  cursor: pointer;
+  padding: $spacing-xs;
+  margin: -$spacing-xs; // Offset padding for better click area
+  border-radius: $border-radius-sm;
+  transition: all $transition-fast;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:hover {
+    background-color: rgba($accent-gold, 0.1);
+    color: $accent-gold;
+  }
+}
+
+.nameEditContainer {
+  width: 100%;
+}
+
+.nameInput {
+  width: 100%;
+  background-color: $background-dark;
+  border: 1px solid $accent-gold;
+  border-radius: $border-radius-sm;
+  padding: $spacing-xs $spacing-sm;
+  color: $text-primary;
+  font-size: $font-size-md;
+  font-weight: $font-weight-bold;
+  font-family: inherit;
+  outline: none;
+
+  &:focus {
+    border-color: $accent-gold-light;
+    box-shadow: 0 0 0 2px rgba($accent-gold, 0.2);
+  }
+}
+
+.removeButton {
+  background-color: $danger-red;
+  color: white;
+  border: none;
+  border-radius: $border-radius-sm;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  transition: all $transition-fast;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: darken($danger-red, 10%);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.level {
+  background-color: $accent-gold;
+  color: $background-dark;
+  border-radius: $border-radius-sm;
+  padding: $spacing-xs $spacing-sm;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-sm;
+  min-width: 40px;
+  text-align: center;
+}
+
+.xpInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.xpBar {
+  background-color: $background-dark;
+  border-radius: $border-radius-sm;
+  height: 8px;
+  overflow: hidden;
+  border: 1px solid $border-color;
+}
+
+.xpFill {
+  background: linear-gradient(90deg, $accent-gold, $accent-gold-light);
+  height: 100%;
+  transition: width $transition-normal;
+}
+
+.xpText {
+  color: $text-secondary;
+  font-size: $font-size-sm;
+  text-align: center;
+}
+
+.emptyState {
+  text-align: center;
+  padding: $spacing-lg;
+  color: $text-muted;
+
+  p {
+    margin: 0;
+    font-style: italic;
+  }
+}

@@ -7,12 +7,13 @@ import QuestForm from '@/features/quests/components/QuestForm';
 import QuestList from '@/features/quests/components/QuestList';
 import AdventureTimer from '@/features/adventureTimer/components/AdventureTimer';
 import SettingsPanel from '@/features/settings/components/SettingsPanel';
+import GuildPanel from '@/features/guild/components/GuildPanel';
 import styles from './Dashboard.module.scss';
 
 const Dashboard: React.FC = () => {
   const { campaigns, quests } = useApp();
   const [showCampaignForm, setShowCampaignForm] = useState(false);
-  const [activeTab, setActiveTab] = useState<'campaigns' | 'sideQuests' | 'create' | 'settings'>('campaigns');
+  const [activeTab, setActiveTab] = useState<'campaigns' | 'sideQuests' | 'create' | 'guild' | 'settings'>('campaigns');
 
   const sideQuests = quests.filter(quest => quest.type === 'side');
 
@@ -49,6 +50,12 @@ const Dashboard: React.FC = () => {
                 onClick={() => setActiveTab('create')}
               >
                 ✨ Create Quest
+              </button>
+              <button
+                className={`${styles.tabButton} ${activeTab === 'guild' ? styles.active : ''}`}
+                onClick={() => setActiveTab('guild')}
+              >
+                🏰 Guild
               </button>
               <button
                 className={`${styles.tabButton} ${activeTab === 'settings' ? styles.active : ''}`}
@@ -110,6 +117,12 @@ const Dashboard: React.FC = () => {
                   </p>
                 </div>
                 <QuestForm onClose={() => setActiveTab('sideQuests')} showTitle={false} />
+              </div>
+            )}
+
+            {activeTab === 'guild' && (
+              <div className={styles.section}>
+                <GuildPanel />
               </div>
             )}
 

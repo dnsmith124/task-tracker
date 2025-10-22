@@ -1,0 +1,184 @@
+@use '@/assets/styles/variables' as *;
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: $z-modal;
+  padding: $spacing-lg;
+}
+
+.modal {
+  background-color: $card-background;
+  border: 2px solid $accent-gold;
+  border-radius: $border-radius-lg;
+  max-width: 1200px;
+  max-height: 95vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 16px 64px $shadow-color;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-lg;
+  border-bottom: 1px solid $border-color;
+}
+
+.title {
+  margin: 0;
+  color: $text-primary;
+  font-family: $font-family-heading;
+  font-size: $font-size-xl;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: $text-secondary;
+  font-size: 24px;
+  cursor: pointer;
+  padding: $spacing-sm;
+  border-radius: $border-radius-sm;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $danger-red;
+    color: white;
+  }
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-lg;
+  padding: $spacing-md;
+  border-bottom: 1px solid $border-color;
+  background-color: $background-medium;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  color: $text-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+}
+
+.legendColor {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid $border-color;
+}
+
+.treeContainer {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  padding: 0;
+  min-height: 700px;
+  background-color: $background-dark;
+  cursor: grab;
+  
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.nodes {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.treeViewport {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  transition: transform 0.2s ease-out;
+}
+
+.controls {
+  position: absolute;
+  top: $spacing-md;
+  right: $spacing-md;
+  display: flex;
+  gap: $spacing-xs;
+  z-index: 100;
+  background-color: $card-background;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  padding: $spacing-xs;
+  box-shadow: 0 4px 16px $shadow-color;
+}
+
+.controlButton {
+  background-color: $background-medium;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-sm;
+  color: $text-primary;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  padding: $spacing-xs $spacing-sm;
+  min-width: 32px;
+  height: 32px;
+  transition: all $transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: $accent-gold;
+    color: $background-dark;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    &:hover {
+      background-color: $background-medium;
+      color: $text-primary;
+    }
+  }
+}
+
+.zoomLevel {
+  color: $text-secondary;
+  font-size: $font-size-sm;
+  padding: 0 $spacing-xs;
+  display: flex;
+  align-items: center;
+  min-width: 50px;
+  justify-content: center;
+}

@@ -6,7 +6,7 @@ import { playAlertSound } from '@/features/settings/utils/soundUtils';
 import styles from './AdventureTimer.module.scss';
 
 const AdventureTimer: React.FC = () => {
-  const { timerState, updateTimerState, completeWorkSession, settings } = useApp();
+  const { timerState, updateTimerState, completeWorkSession, completeBreakSession, settings } = useApp();
   const intervalRef = useRef<number | null>(null);
 
   // Timer countdown effect - using timestamp-based approach for accuracy across tab focus changes
@@ -67,7 +67,8 @@ const AdventureTimer: React.FC = () => {
         workDurationCompleted: 0,
       });
     } else if (timerState.phase === 'break') {
-      // Break complete, return to idle
+      // Break complete, apply building effects and return to idle
+      completeBreakSession();
       const workDuration = getPresetDuration(timerState.preset, 'work');
       updateTimerState({
         phase: 'idle',

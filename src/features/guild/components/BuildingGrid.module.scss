@@ -1,0 +1,213 @@
+@use '@/assets/styles/variables' as *;
+
+.buildingGrid {
+  position: relative;
+}
+
+.moveInstructions {
+  background-color: $accent-gold-light;
+  border: 2px solid $accent-gold;
+  border-radius: $border-radius-md;
+  padding: $spacing-sm $spacing-md;
+  margin-bottom: $spacing-md;
+  text-align: center;
+  color: $background-dark;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 2px;
+  background-color: $background-medium;
+  border: 2px solid $border-color;
+  border-radius: $border-radius-md;
+  padding: 8px;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.gridCell {
+  background-color: $card-background;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all $transition-fast;
+  min-height: 60px;
+
+  &:hover {
+    background-color: $card-hover;
+    border-color: $accent-gold;
+  }
+
+  &.selected {
+    background-color: $accent-gold-light;
+    border-color: $accent-gold;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+  }
+
+  &.moving {
+    background-color: rgba(212, 175, 55, 0.3);
+    border-color: $accent-gold;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  &.validMoveTarget {
+    background-color: rgba(76, 175, 80, 0.2);
+    border-color: #4CAF50;
+
+    &:hover {
+      background-color: rgba(76, 175, 80, 0.4);
+      border-color: #4CAF50;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 1);
+  }
+}
+
+.building {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.buildingIcon {
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+
+.buildingLevel {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background-color: $accent-gold;
+  color: $background-dark;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: $font-weight-bold;
+}
+
+.buildingMenu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $card-background;
+  border: 2px solid $accent-gold;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  z-index: $z-modal;
+  min-width: 300px;
+  box-shadow: 0 8px 32px $shadow-color;
+}
+
+.menuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+  border-bottom: 1px solid $border-color;
+  padding-bottom: $spacing-sm;
+
+  h3 {
+    margin: 0;
+    color: $text-primary;
+    font-family: $font-family-heading;
+  }
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: $text-secondary;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: $border-radius-sm;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $danger-red;
+    color: white;
+  }
+}
+
+.buildingOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: $spacing-sm;
+}
+
+.buildingOption {
+  background-color: $background-medium;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  padding: $spacing-sm;
+  cursor: pointer;
+  transition: all $transition-fast;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  &:hover {
+    background-color: $card-hover;
+    border-color: $accent-gold;
+    transform: translateY(-2px);
+  }
+}
+
+.optionIcon {
+  font-size: 24px;
+  margin-bottom: $spacing-xs;
+}
+
+.optionName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+  margin-bottom: $spacing-xs;
+}
+
+.optionCost {
+  font-size: $font-size-sm;
+  color: $accent-gold;
+  font-weight: $font-weight-medium;
+}
+
+.buildingOptionContainer {
+  position: relative;
+}
+
+.buildingTooltip {
+  z-index: $z-tooltip;
+}
+
+.buildingOptionTooltip {
+  z-index: $z-tooltip;
+}

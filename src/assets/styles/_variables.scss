@@ -4,6 +4,8 @@ $primary-purple: #4a2c6d;
 $primary-light: #6b4a9e;
 $accent-gold: #d4af37;
 $accent-gold-light: #f4cf6f;
+$accent-blue: #3498db;
+$accent-blue-light: #5dade2;
 
 $background-dark: #1a0f2e;
 $background-medium: #2d1b4e;
@@ -26,7 +28,9 @@ $font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 $font-family-heading: 'Cinzel', serif, $font-family-base;
 
 $font-size-base: 16px;
+$font-size-xs: 12px;
 $font-size-sm: 14px;
+$font-size-md: 16px;
 $font-size-lg: 18px;
 $font-size-xl: 24px;
 $font-size-xxl: 32px;
@@ -44,6 +48,7 @@ $spacing-xl: 2rem;
 $spacing-xxl: 3rem;
 
 // Border Radius
+$border-radius-xs: 2px;
 $border-radius-sm: 4px;
 $border-radius-md: 8px;
 $border-radius-lg: 12px;
@@ -56,5 +61,6 @@ $transition-slow: 0.5s ease;
 // Z-index
 $z-modal: 1000;
 $z-toast: 2000;
+$z-tooltip: 1500;
 $z-dropdown: 500;
 
