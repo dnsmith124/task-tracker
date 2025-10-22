@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useApp } from '@/context/AppContext';
-import { calculateAdventurerMultiplier, getAdventurerXPProgress } from '../utils/adventurerUtils';
+import { calculateAdventurerMultiplier, getAdventurerXPProgress, getAdventurerXPForLevel } from '../utils/adventurerUtils';
 import { ConfirmModal } from '@/features/core/components';
 import styles from './AdventurerList.module.scss';
 
@@ -90,14 +90,14 @@ const AdventurerList: FC = () => {
           disabled={!canAffordHire}
           title={canAffordHire ? `Hire a new adventurer for ${hireCost} renown` : `Not enough renown (need ${hireCost})`}
         >
-          ✨ Hire Adventurer ({hireCost} renown)
+          ✨ Hire Adventurer<br/> <span className={styles.hireCost}>({hireCost} renown)</span>
         </button>
       )}
 
       <div className={styles.adventurers}>
         {adventurers.map((adventurer) => {
           const xpProgress = getAdventurerXPProgress(adventurer);
-          const xpForNextLevel = (adventurer.level + 1) * 100;
+          const xpForNextLevel = getAdventurerXPForLevel(adventurer.level);
           const xpInCurrentLevel = adventurer.xp;
           const isEditing = editingAdventurerId === adventurer.id;
 

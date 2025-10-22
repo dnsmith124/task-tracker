@@ -7,9 +7,10 @@ export const BUILDING_TEMPLATES: BuildingTemplate[] = [
     description: 'The heart of your guild, providing adventurer capacity',
     icon: '🏰',
     maxLevel: 4,
-    baseCost: 0, // Free starter building
+    baseCost: 50,
     effects: [
-      { type: 'adventurer_capacity', value: 5 }
+      { type: 'adventurer_capacity', value: 5 },
+      { type: 'adventurer_xp_per_work', value: 10 }
     ],
     unlockedByDefault: true
   },

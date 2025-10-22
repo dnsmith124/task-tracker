@@ -1,4 +1,4 @@
-import { Building, GridPosition, BuildingEffect } from '../types/Guild';
+import { Building, GridPosition } from '../types/Guild';
 import { getBuildingTemplate } from '../types/BuildingTemplates';
 
 export const getBuildingCost = (buildingType: string, level: number): number => {

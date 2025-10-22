@@ -215,7 +215,7 @@
 
 .xpText {
   color: $text-secondary;
-  font-size: $font-size-sm;
+  font-size: $font-size-xs;
   text-align: center;
 }
 
@@ -228,4 +228,9 @@
     margin: 0;
     font-style: italic;
   }
+}
+
+.hireCost {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-normal;
 }

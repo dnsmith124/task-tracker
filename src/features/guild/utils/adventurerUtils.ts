@@ -27,7 +27,7 @@ export const calculateAdventurerMultiplier = (adventurers: Adventurer[]): number
 
 export const getAdventurerXPForLevel = (level: number): number => {
   // Similar curve to character XP: level * 100
-  return level * 100;
+  return (level * 2) * 25;
 };
 
 export const distributeXPToAdventurers = (adventurers: Adventurer[], totalXP: number): Adventurer[] => {
