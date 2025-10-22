@@ -70,6 +70,14 @@
   border-radius: $border-radius-md;
   padding: $spacing-lg;
 }
+.gridSectionInner {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: $spacing-md;
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+}
 
 .sectionHeader {
   display: flex;

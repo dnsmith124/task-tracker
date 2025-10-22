@@ -3,10 +3,11 @@ import { useApp } from '@/context/AppContext';
 import { TIMER_PRESETS, ADVENTURES, TimerPreset, TimerState } from '../types/Timer';
 import { formatTime, getPresetDuration } from '../utils/timerUtils';
 import { playAlertSound } from '@/features/settings/utils/soundUtils';
+import { calculateAdventurerMultiplier } from '@/features/guild/utils/adventurerUtils';
 import styles from './AdventureTimer.module.scss';
 
 const AdventureTimer: React.FC = () => {
-  const { timerState, updateTimerState, completeWorkSession, completeBreakSession, settings } = useApp();
+  const { timerState, updateTimerState, completeWorkSession, completeBreakSession, settings, guildState } = useApp();
   const intervalRef = useRef<number | null>(null);
 
   // Timer countdown effect - using timestamp-based approach for accuracy across tab focus changes
@@ -154,6 +155,33 @@ const AdventureTimer: React.FC = () => {
        getPresetDuration(timerState.preset, timerState.phase)) * 100
     : 0;
 
+  // Calculate adventurer multiplier for reward preview
+  const adventurerMultiplier = calculateAdventurerMultiplier(guildState.adventurers);
+  
+  // Generate reward description
+  const getRewardDescription = () => {
+    if (selectedAdventure.isAttributeBonus) {
+      return selectedAdventure.description;
+    }
+
+    const increment = (TIMER_PRESETS[timerState.preset].workDuration / 60) / 5;
+    const baseReward = (selectedAdventure?.rewardPerIncrement || 0) * increment;
+    const multipliedReward = baseReward * Math.max(1, adventurerMultiplier);
+    
+    if (adventurerMultiplier > 1) {
+      return (
+        <span>
+          {selectedAdventure.description}
+          <span className={styles.multiplierPreview}>
+            {' '}→ {multipliedReward} {selectedAdventure.rewardType} with {adventurerMultiplier}x from adventurers
+          </span>
+        </span>
+      );
+    }
+    
+    return selectedAdventure.description;
+  };
+
   return (
     <div className={styles.adventureTimer}>
       <div className={styles.header}>
@@ -173,7 +201,7 @@ const AdventureTimer: React.FC = () => {
               >
                 <div className={styles.presetName}>{TIMER_PRESETS[preset].name}</div>
                 <div className={styles.presetDetails}>
-                  {TIMER_PRESETS[preset].workDuration / 60}m / {TIMER_PRESETS[preset].breakDuration / 60}m
+                  {(TIMER_PRESETS[preset].workDuration / 60).toFixed(0)}m / {(TIMER_PRESETS[preset].breakDuration / 60).toFixed(0)}m
                 </div>
               </button>
             ))}
@@ -195,7 +223,7 @@ const AdventureTimer: React.FC = () => {
               </option>
             ))}
           </select>
-          <p className={styles.adventureDescription}>{selectedAdventure.description}</p>
+          <p className={styles.adventureDescription}>{getRewardDescription()}</p>
         </div>
 
         {/* Timer Display */}

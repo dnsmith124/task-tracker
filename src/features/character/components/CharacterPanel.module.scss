@@ -3,7 +3,7 @@
 
 .characterPanel {
   @include card;
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-md;
 
   @include md {
     margin-bottom: 0;
@@ -14,8 +14,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: $spacing-lg;
-  padding-bottom: $spacing-md;
+  margin-bottom: $spacing-md;
+  padding-bottom: $spacing-sm;
   border-bottom: 2px solid $border-color;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .nameSection {
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-md;
 }
 
 .nameDisplay {
@@ -103,8 +103,8 @@
 }
 
 .resourcesSection {
-  margin-top: $spacing-lg;
-  padding-top: $spacing-lg;
+  margin-top: $spacing-md;
+  padding-top: $spacing-sm;
   border-top: 2px solid $border-color;
 }
 
@@ -148,7 +148,7 @@
 }
 
 .pendingBonusesSection {
-  margin-top: $spacing-lg;
+  margin-top: $spacing-md;
   padding: $spacing-md;
   background: rgba($warning-orange, 0.1);
   border: 2px solid rgba($warning-orange, 0.5);
@@ -196,8 +196,8 @@
 }
 
 .attributesSection {
-  margin-top: $spacing-lg;
-  padding-top: $spacing-lg;
+  margin-top: $spacing-md;
+  padding-top: $spacing-sm;
   border-top: 2px solid $border-color;
 }
 
@@ -226,7 +226,8 @@
 
 .attributesList {
   display: grid;
-  gap: $spacing-md;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-sm;
 }
 
 .attributeRow {
@@ -243,7 +244,7 @@
   font-weight: $font-weight-bold;
   color: $text-primary;
   font-size: $font-size-base;
-  min-width: 50px;
+  min-width: 40px;
 }
 
 .attributeValue {

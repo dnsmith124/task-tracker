@@ -1,4 +1,5 @@
 @use '@/assets/styles/variables' as *;
+@use 'sass:color';
 
 .adventurerList {
   background-color: $card-background;
@@ -66,7 +67,7 @@
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    background: linear-gradient(135deg, $text-muted, darken($text-muted, 10%));
+    background: linear-gradient(135deg, $text-muted, color.adjust($text-muted, $lightness: -10%));
   }
 }
 
@@ -171,7 +172,7 @@
   flex-shrink: 0;
 
   &:hover {
-    background-color: darken($danger-red, 10%);
+    background-color: color.adjust($danger-red, $lightness: -10%);
     transform: scale(1.1);
   }
 

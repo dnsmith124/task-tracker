@@ -6,7 +6,7 @@ import { calculateLevelUp } from '@/features/character/utils/xpCalculations';
 import { toast } from 'react-toastify';
 import { TimerState } from '@/features/adventureTimer/types/Timer';
 import { getInitialTimerState, calculateIncrements, getPresetBonusMultiplier } from '@/features/adventureTimer/utils/timerUtils';
-import { ADVENTURES } from '@/features/adventureTimer/types/Timer';
+import { ADVENTURES, TIMER_PRESETS } from '@/features/adventureTimer/types/Timer';
 import { Settings, DEFAULT_SETTINGS } from '@/features/settings/types/Settings';
 import { GuildState, Building, GridPosition } from '@/features/guild/types/Guild';
 import { getInitialGuildState } from '@/features/guild/utils/guildUtils';
@@ -346,7 +346,12 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     
     if (!adventure) return;
 
-    const increments = calculateIncrements(timerState.workDurationCompleted);
+    // Apply reward multiplier for test preset (10 seconds acts as 5 minutes)
+    const presetConfig = TIMER_PRESETS[timerState.preset];
+    const rewardMultiplier = presetConfig.rewardMultiplier || 1;
+    const adjustedDuration = timerState.workDurationCompleted * rewardMultiplier;
+    
+    const increments = calculateIncrements(adjustedDuration);
     const bonusMultiplier = getPresetBonusMultiplier(timerState.preset);
 
     // Calculate adventurer multiplier

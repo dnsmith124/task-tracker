@@ -56,8 +56,8 @@
   gap: $spacing-lg;
 
   @include lg {
-    grid-template-columns: 1fr 2fr;
-    gap: $spacing-xl;
+    grid-template-columns: 1fr 3.25fr;
+    gap: $spacing-lg;
   }
 }
 

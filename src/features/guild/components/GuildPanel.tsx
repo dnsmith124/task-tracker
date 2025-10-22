@@ -59,6 +59,10 @@ const GuildPanel: React.FC = () => {
             <span className={styles.resourceValue}>{character.gold}</span>
           </div>
           <div className={styles.resource}>
+            <span className={styles.resourceIcon}>⭐</span>
+            <span className={styles.resourceValue}>{character.renown}</span>
+          </div>
+          <div className={styles.resource}>
             <span className={styles.resourceIcon}>🔮</span>
             <span className={styles.resourceValue}>{character.mana}</span>
           </div>
@@ -77,22 +81,21 @@ const GuildPanel: React.FC = () => {
                 🔬 Research Tree
               </button>
             </div>
-            <BuildingGrid 
-              onBuildingSelect={handleBuildingSelect}
-              movingBuildingId={movingBuildingId}
-              onMovingComplete={handleMovingComplete}
-            />
-          </div>
-
-          {selectedBuilding && (
-            <div className={styles.buildingCardSection}>
-              <BuildingCard 
-                building={selectedBuilding} 
-                onClose={handleCloseBuildingCard}
-                onMoveMode={handleMoveMode}
+            <div className={styles.gridSectionInner}>
+              <BuildingGrid 
+                onBuildingSelect={handleBuildingSelect}
+                movingBuildingId={movingBuildingId}
+                onMovingComplete={handleMovingComplete}
               />
+              {selectedBuilding && (
+                <BuildingCard 
+                  building={selectedBuilding} 
+                  onClose={handleCloseBuildingCard}
+                  onMoveMode={handleMoveMode}
+                />
+              )}
             </div>
-          )}
+          </div>
         </div>
 
         <div className={styles.sidebar}>

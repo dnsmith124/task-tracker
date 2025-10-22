@@ -1,5 +1,6 @@
 @use '@/assets/styles/variables' as *;
 @use '@/assets/styles/mixins' as *;
+@use 'sass:color';
 
 .settingsPanel {
   display: flex;
@@ -167,7 +168,7 @@
     padding: 0.875rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
-    background: linear-gradient(135deg, $primary-purple, darken($primary-purple, 10%));
+    background: linear-gradient(135deg, $primary-purple, color.adjust($primary-purple, $lightness: -10%));
     color: white;
     border: none;
     border-radius: 8px;
@@ -178,7 +179,7 @@
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
-      background: linear-gradient(135deg, lighten($primary-purple, 5%), $primary-purple);
+      background: linear-gradient(135deg, color.adjust($primary-purple, $lightness: 5%), $primary-purple);
     }
 
     &:active {
@@ -188,3 +189,127 @@
   }
 }
 
+// Debug Panel Styles
+.debugSection {
+  margin-top: $spacing-lg;
+  padding-top: $spacing-lg;
+  border-top: 2px solid rgba($danger-red, 0.3);
+  background: rgba($danger-red, 0.05);
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+}
+
+.debugWarning {
+  font-size: $font-size-sm;
+  color: rgba($danger-red, 0.8);
+  font-style: italic;
+  margin: $spacing-xs 0 $spacing-md 0;
+  padding: $spacing-xs $spacing-sm;
+  background: rgba($danger-red, 0.1);
+  border-radius: $border-radius-sm;
+  border-left: 3px solid $danger-red;
+}
+
+.debugGroup {
+  margin-top: $spacing-md;
+  padding: $spacing-sm;
+  background: rgba($primary-light, 0.1);
+  border-radius: $border-radius-sm;
+  border: 1px solid $border-color;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.debugGroupTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $accent-gold;
+  margin: 0 0 $spacing-sm 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.debugControl {
+  margin-bottom: $spacing-sm;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.debugLabel {
+  display: block;
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  margin-bottom: $spacing-xs;
+  font-weight: $font-weight-medium;
+}
+
+.debugInputGroup {
+  display: flex;
+  gap: $spacing-xs;
+  align-items: center;
+}
+
+.debugInput {
+  flex: 1;
+  padding: $spacing-xs $spacing-sm;
+  background: rgba($primary-dark, 0.5);
+  border: 1px solid $border-color;
+  border-radius: $border-radius-sm;
+  color: $text-primary;
+  font-size: $font-size-sm;
+  font-family: $font-family-base;
+  transition: all $transition-normal;
+
+  &:focus {
+    outline: none;
+    border-color: $accent-gold;
+    background: rgba($primary-dark, 0.7);
+  }
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  // Remove spinner arrows for number inputs
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
+}
+
+.debugButton {
+  @include button-base;
+  padding: $spacing-xs $spacing-md;
+  background: rgba($danger-red, 0.2);
+  border: 2px solid $danger-red;
+  color: $text-primary;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-sm;
+  min-width: 60px;
+  transition: all $transition-normal;
+
+  &:hover:not(:disabled) {
+    background: rgba($danger-red, 0.3);
+    border-color: color.adjust($danger-red, $lightness: 10%);
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

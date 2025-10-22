@@ -1,10 +1,11 @@
 @use '@/assets/styles/variables' as *;
+@use 'sass:color';
 
 .buildingCard {
   background-color: $card-background;
   border: 2px solid $accent-gold;
   border-radius: $border-radius-lg;
-  padding: $spacing-lg;
+  padding: $spacing-md;
   max-width: 400px;
   margin: 0 auto;
   box-shadow: 0 8px 32px $shadow-color;
@@ -138,7 +139,7 @@
   color: white;
 
   &:hover {
-    background-color: lighten($accent-blue, 10%);
+    background-color: color.adjust($accent-blue, $lightness: 10%);
     transform: translateY(-1px);
   }
 }
@@ -148,7 +149,7 @@
   color: white;
 
   &:hover {
-    background-color: darken($danger-red, 10%);
+    background-color: color.adjust($danger-red, $lightness: -10%);
     transform: translateY(-1px);
   }
 }

@@ -1,5 +1,6 @@
 @use '@/assets/styles/variables' as *;
 @use '@/assets/styles/mixins' as *;
+@use 'sass:color';
 
 .modalOverlay {
   position: fixed;
@@ -92,10 +93,10 @@
   @include button-primary;
   
   &.danger {
-    background: linear-gradient(135deg, $danger-red, darken($danger-red, 10%));
+    background: linear-gradient(135deg, $danger-red, color.adjust($danger-red, $lightness: -10%));
     
     &:hover:not(:disabled) {
-      background: linear-gradient(135deg, lighten($danger-red, 5%), darken($danger-red, 5%));
+      background: linear-gradient(135deg, color.adjust($danger-red, $lightness: 5%), color.adjust($danger-red, $lightness: -5%));
     }
   }
 }

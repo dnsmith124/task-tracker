@@ -9,6 +9,7 @@ export interface PresetConfig {
   workDuration: number; // in seconds
   breakDuration: number; // in seconds
   bonusMultiplier: number; // for attribute bonuses
+  rewardMultiplier?: number; // optional multiplier for reward calculation (for testing)
 }
 
 export interface Adventure {
@@ -56,21 +57,21 @@ export const ADVENTURES: Adventure[] = [
   {
     id: 'dungeon',
     name: 'Delve into a dungeon',
-    description: 'Grants 5 gold pieces per 5min worked',
+    description: 'Grants 1 gold piece per adventurer per 5min worked',
     rewardType: 'gold',
-    rewardPerIncrement: 5,
+    rewardPerIncrement: 1,
   },
   {
     id: 'monster',
     name: 'Hunt a great monster',
-    description: 'Grants 1 renown per 5min worked',
+    description: 'Grants 1 renown per adventurer per 5min worked',
     rewardType: 'renown',
     rewardPerIncrement: 1,
   },
   {
     id: 'orb',
     name: 'Ponder your orb',
-    description: 'Grants 1 mana per 5min worked',
+    description: 'Grants 1 mana per adventurer per 5min worked',
     rewardType: 'mana',
     rewardPerIncrement: 1,
   },
