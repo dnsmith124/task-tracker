@@ -4,7 +4,17 @@ const FIRST_NAMES = [
   'Aria', 'Bjorn', 'Cedric', 'Diana', 'Erik', 'Fiona', 'Gareth', 'Helena',
   'Ivar', 'Jade', 'Kael', 'Luna', 'Marcus', 'Nyx', 'Orin', 'Petra',
   'Quinn', 'Raven', 'Soren', 'Thalia', 'Ulric', 'Vera', 'Wren', 'Xander',
-  'Yara', 'Zephyr', 'Ash', 'Brynn', 'Cato', 'Dara', 'Eamon', 'Freya'
+  'Yara', 'Zephyr', 'Ash', 'Brynn', 'Cato', 'Dara', 'Eamon', 'Freya',
+  'Alaric', 'Isolde', 'Thorin', 'Elara', 'Draven', 'Lyria', 'Ragnar', 'Seraphina',
+  'Aldric', 'Mira', 'Kaelen', 'Astrid', 'Theron', 'Selene', 'Rowan', 'Elise',
+  'Valen', 'Nimue', 'Torsten', 'Cassia', 'Fenris', 'Liora', 'Baldric', 'Rhiannon',
+  'Dorian', 'Kalista', 'Magnus', 'Aurelia', 'Silas', 'Tessa', 'Varian', 'Serina',
+  'Lucian', 'Zahra', 'Eirik', 'Cordelia', 'Bastian', 'Vesper', 'Leif', 'Morgana',
+  'Caius', 'Elara', 'Finn', 'Rowena', 'Jasper', 'Nerissa', 'Thaddeus', 'Isadora',
+  'Corwin', 'Sable', 'Alarion', 'Evangeline', 'Brennan', 'Celestia', 'Drake', 'Vivienne',
+  'Aldwyn', 'Amara', 'Sigurd', 'Ophelia', 'Halvar', 'Zara', 'Tobias', 'Arianne',
+  'Griffin', 'Lorelei', 'Osric', 'Sabine', 'Kieran', 'Elspeth', 'Roland', 'Sylvia',
+  'Broderick', 'Maelis', 'Valtor', 'Lunette', 'Tiberius', 'Fiora', 'Callum', 'Seraphine'
 ];
 
 const LAST_NAMES = [
@@ -12,7 +22,21 @@ const LAST_NAMES = [
   'Stonefist', 'Moonwhisper', 'Flameheart', 'Frostbeard', 'Windwalker',
   'Earthshaker', 'Stargazer', 'Nightblade', 'Sunseeker', 'Thornwood',
   'Silverhand', 'Goldenhair', 'Blackthorn', 'Redcloak', 'Bluemoon',
-  'Greywolf', 'Whitefang', 'Darkwater', 'Lightbringer', 'Skyrunner'
+  'Greywolf', 'Whitefang', 'Darkwater', 'Lightbringer', 'Skyrunner',
+  'Dragonsbane', 'Ravenwood', 'Emberforge', 'Crystalbrook', 'Steelwing',
+  'Dawnbringer', 'Ashenvale', 'Wyrmwood', 'Frostfire', 'Thunderstrike',
+  'Moonstone', 'Suncaller', 'Shadowmere', 'Wildrose', 'Ironwood',
+  'Stormheart', 'Darkblade', 'Brightmoon', 'Swiftshadow', 'Goldforge',
+  'Ravencrest', 'Nightwhisper', 'Dawnstar', 'Stonebreaker', 'Flamecrest',
+  'Winterborn', 'Oakheart', 'Bloodmoon', 'Starweaver', 'Thornblade',
+  'Silverthorn', 'Firewalker', 'Iceheart', 'Mistborn', 'Forestkeeper',
+  'Ironvale', 'Stormweaver', 'Shadowfell', 'Brightblade', 'Moonveil',
+  'Wolfsbane', 'Wintermoon', 'Stoneheart', 'Swiftblade', 'Darkrose',
+  'Sunforge', 'Ravenfall', 'Thornheart', 'Frostmoon', 'Goldcrest',
+  'Emberwind', 'Silverbrook', 'Nightstorm', 'Dawnforge', 'Ashenblade',
+  'Stormridge', 'Ironcloak', 'Moonfire', 'Wildheart', 'Crystalwind',
+  'Shadowstorm', 'Brightforge', 'Ravenshield', 'Flamebringer', 'Frostcrest',
+  'Starfall', 'Thornshield', 'Goldheart', 'Stoneward', 'Swiftstrike'
 ];
 
 export const generateAdventurerName = (): string => {

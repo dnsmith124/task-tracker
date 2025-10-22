@@ -168,16 +168,14 @@ const AdventureTimer: React.FC = () => {
     const baseReward = (selectedAdventure?.rewardPerIncrement || 0) * increment;
     const multipliedReward = baseReward * Math.max(1, adventurerMultiplier);
     
-    if (adventurerMultiplier > 1) {
-      return (
-        <span>
-          {selectedAdventure.description}
-          <span className={styles.multiplierPreview}>
-            {' '}→ {multipliedReward} {selectedAdventure.rewardType} with {adventurerMultiplier}x from adventurers
-          </span>
+    return (
+      <span>
+        {selectedAdventure.description}
+        <span className={styles.multiplierPreview}>
+          {' '}→ {multipliedReward} {selectedAdventure.rewardType} ({adventurerMultiplier}x from adventurers)
         </span>
-      );
-    }
+      </span>
+    );
     
     return selectedAdventure.description;
   };
